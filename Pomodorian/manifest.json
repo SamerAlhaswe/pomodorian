@@ -1,0 +1,16 @@
+{
+"manifest_version": 3,
+"name": "Pomodorian",
+"version": "1.0",
+"description": "A quick way to add the pomodoro technique into your workflow!",
+"icons": {
+    "16": "images/16px.png",
+    "32": "images/32px.png",
+    "48": "images/48px.png",
+    "128": "images/128px.png"
+  },
+"action":{
+   "default_popup": "popup.html"
+}
+
+}
