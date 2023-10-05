@@ -2,22 +2,26 @@ const btn = document.getElementById("btn");
 const CountDown = document.getElementById("countDown");
 const hString= document.getElementById("warn");
 
-const v_work = 0.35;
+const v_work = 25;
 const startingMinutes = v_work;
-const v_rest = 0.25;
+const v_rest = 5;
 
 let alarmSet = false;
 let updateCountDown;
 let mode = "Work";
 let time = startingMinutes * 60;
+let clickTimes = 0;
 
 let cycles = 0;
 let PrefferedCycles = 3;
 
 window.onload=function(){
 btn.addEventListener("click", () => {
-    updateCountDown = setInterval(updateCountdown, 1000);    
-    // startNewCycle(mode);
+    clickTimes++;
+    if(clickTimes == 1){
+        updateCountDown = setInterval(updateCountdown, 1000);    
+        hString.innerText = mode +' '+ "Time";
+    }
 });
 }
 
@@ -26,10 +30,12 @@ function startNewCycle(Mode)
     if(mode == "Rest"){
         time = v_rest * 60;
         updateCountDown = setInterval(updateCountdown, 1000);
+        hString.innerText = mode +' '+ "Time";
     }
     else if(mode == "Work"){
         time = v_work * 60;
         updateCountDown = setInterval(updateCountdown, 1000);
+        hString.innerText = mode +' '+ "Time";
     }
 }
 function updateCountdown()
@@ -67,9 +73,5 @@ function setAlarm(){
     let sound = new Audio("audio/alarm.wav");
     sound.play();
     alarmSet = true;
-}
-function changeMode(Mode = "Work"){
-        hString.innerHTML = Mode +' '+ "Time";
-   if(Mode = ""){hString.innerHTML = "press to start count down";}
 }
 
