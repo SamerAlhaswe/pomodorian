@@ -1,10 +1,14 @@
 const btn = document.getElementById("btn");
 const CountDown = document.getElementById("countDown");
 const hString= document.getElementById("warn");
+const settings = document.getElementById("settings");
+const settings_btn = document.getElementsByClassName("setting_btn");
 
-const v_work = 25;
+const cyles_i= document.getElementsByClassName("A-cycles");
+
+const v_work=25;
 const startingMinutes = v_work;
-const v_rest = 5;
+const v_rest=5;
 
 let alarmSet = false;
 let updateCountDown;
@@ -16,6 +20,9 @@ let cycles = 0;
 let PrefferedCycles = 3;
 
 window.onload=function(){
+    PrefferedCycles = localStorage.getItem("Pcycles");
+    cyles_i.placeholder= PrefferedCycles;
+    
 btn.addEventListener("click", () => {
     clickTimes++;
     if(clickTimes == 1){
@@ -23,6 +30,16 @@ btn.addEventListener("click", () => {
         hString.innerText = mode +' '+ "Time";
     }
 });
+
+cyles_i[0].addEventListener("input", function(){
+  var value = cyles_i[0].value;
+  console.log("hi");
+  value = parseInt(value);
+
+  PrefferedCycles = value;
+  localStorage.setItem("Pcycles", value);
+}, false);
+
 }
 
 function startNewCycle(Mode)
@@ -55,7 +72,7 @@ function updateCountdown()
         if(mode == "Work" && PrefferedCycles != cycles)
         {
             mode = "Rest";
-            startNewCycle("Rest")
+            startNewCycle("Rest");
         }
         else if(mode == "Rest" && PrefferedCycles != cycles)
         {
@@ -63,8 +80,6 @@ function updateCountdown()
             startNewCycle("Work");
             cycles++;
         }
-        console.log(mode);
-        console.log(cycles);
     }
 }
 

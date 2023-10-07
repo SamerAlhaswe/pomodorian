@@ -1,7 +1,7 @@
-:root
+html
 {
-    --primary-color : #030000;
-    --secondary-color : #ffffff;
+    --primary-color : #b4db9a;
+    --secondary-color : #a70606;
 }
 body{
     background-color: var(--primary-color);
@@ -10,8 +10,8 @@ body{
 }
 div
 {
-    width: 150px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
 }
 .btn
 {
@@ -25,11 +25,14 @@ div
 h2, h6, p{
     color: var(--secondary-color);
 }
-.settings{
+.setting_btn{
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border-color: var(--secondary-color);
     border-style: solid;
     width: 60px;
     height: 30px;
+}
+.A-cycles{
+    box-sizing: 100px;
 }

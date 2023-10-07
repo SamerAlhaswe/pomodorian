@@ -1,17 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>bg</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="scripts/style.css">
-    <body>
-        <button id="btn" class="btn"> 
+</head>
+<body>
+    <div>
+            <button id="btn" class="btn"> 
                 <h6 id="warn">press to start count down</h6>
-                <h2 id="countDown"></h2>
+                <p id="countDown"></p>
             </button>
+            <button class="setting_btn"><p>settings</p></button>
             <div class="settings">
                 <h6>amount of cycles</h6>
-                <input placeholder="..." type="text" name="cycles" class="A-cycles">
+                <input placeholder="..." type="text" name="cycles" id="A-cycles">
             </div>
+        </div>
         <script src="scripts/script.js"></script>
-    </body>
+</body>
 </html>
